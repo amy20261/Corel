@@ -42,10 +42,9 @@ Check Link_Home Page_STG
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
     \    Open Browser to Home Page    stg    ${Corel}    @{var}[1]    @{var}[2]
+    \    onetrust-group-btn
     \    run keyword if    '@{var}[1]' in 'en;de;fr;it;nl;br;la;cz;pl;tw;cn;ru'    verify link on home page_CDGS2019    coreldraw    paintshop-pro/ultimate    painter
     \    ...    videostudio/ultimate
-    \    run keyword if    '@{var}[1]' in 'jp'    verify link on home page_CDGS2019_JP    videostudio/ultimate    painter    paintshop-pro/ultimate
-    \    ...    coreldraw
 
 Check Link_Special Offer Page_STG
     ${contents}=    Get File    ${Corel_Home}
@@ -57,9 +56,6 @@ Check Link_Special Offer Page_STG
     \    run keyword if    '@{var}[1]' in 'en;de;fr;it;nl;br;la'    run keyword and continue on failure    verify link in special offer page_2019    coreldraw    coreldraw
     \    ...    coreldraw    painter    office-suite    paintshop-pro/ultimate    aftershotpro
     \    ...    videostudio/ultimate    photo-video-bundle
-    \    run keyword if    '@{var}[1]' in 'jp'    run keyword and continue on failure    verify link in special offer page_2019_JP    videostudio/ultimate    coreldraw
-    \    ...    coreldraw    painter    office-suite    paintshop-pro/ultimate    aftershotpro
-    \    ...    videostudio/ultimate    photo-video-bundle
     \    close all browsers
 
 Check Hero _Home Page_BN1
@@ -69,6 +65,7 @@ Check Hero _Home Page_BN1
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
     \    Open Browser to Home Page    ${env}    ${Corel}    @{var}[1]    @{var}[2]
+    \    onetrust-group-btn
     \    run keyword and continue on failure    element should contain    //p[@data-promo-text='hpPromoMsgShort']/span[@class='title']    @{var}[3]
     \    close all browsers
     [Teardown]
@@ -107,16 +104,30 @@ Check HSW _Free Trial Page_BN1
     \    close all browsers
     [Teardown]
 
+Check Link_Special Offer Page_STG_2020
+    ${contents}=    Get File    ${Corel_Home}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Open Browser to Special Offer Page    stg    ${Corel}    @{var}[1]    @{var}[2]
+    \    onetrust-group-btn
+    \    run keyword if    '@{var}[1]' in 'en;de;fr;it;nl;br;la'    run keyword and continue on failure    verify link in special offer page_2020    coreldraw    coreldraw
+    \    ...    coreldraw    painter    office-suite    paintshop-pro/ultimate    photomirage
+    \    ...    videostudio/ultimate    photo-video-bundle    professional-edition    technical-suite    painter-essentials
+    \    ...    corel-cad    videostudio    painshop-pro    windvdpro    aftershot
+    \    close all browsers
+
 *** Keywords ***
 verify link on home page_CDGS2019
     [Arguments]    ${Hero}    ${ Featured Prod 1}    ${ Featured Prod 2}    ${ Featured Prod 3}
     #Click HeroBanner_Corel_2019
     #Verify URL Contain_Blank    ${Hero}
-    Click Featured Prod 1
+    Click Featured Prod 1_corel_n
     Verify URL Contain_Blank    ${ Featured Prod 1}
-    Click Featured Prod 2
+    Click Featured Prod 2_corel_n
     Verify URL Contain_Blank    ${ Featured Prod 2}
-    Click Featured Prod 3
+    Click Featured Prod 3_Corel_n
     Verify URL Contain_Blank    ${ Featured Prod 3}
     close all browsers
 
@@ -141,8 +152,8 @@ verify link in special offer Hero_ 2019
 verify link in special offer Page_ 2019
     [Arguments]    ${Special Offers Hero}    ${Prod 1}    ${Prod 2}    ${Prod 3}    ${Prod 4}    ${Prod 5}
     ...    ${Prod 6}    ${Prod 7}    ${Prod 8}
-    Click Special Offers Hero_CDGS
-    run keyword and continue on failure    Verify URL Contain_Blank    ${Special Offers Hero}
+    #Click Special Offers Hero_CDGS
+    #run keyword and continue on failure    Verify URL Contain_Blank    ${Special Offers Hero}
     Click Prod 1
     run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 1}
     Click Prod 2
@@ -183,3 +194,42 @@ verify link in special offer Page_ 2019_JP
     Click Prod 8
     run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 8}
     close all browsers
+
+verify link in special offer Page_ 2020
+    [Arguments]    ${Special Offers Hero}    ${Prod 1}    ${Prod 2}    ${Prod 3}    ${Prod 4}    ${Prod 5}
+    ...    ${Prod 6}    ${Prod 7}    ${Prod 8}    ${Prod 9}    ${Prod 10}    ${Prod 11}
+    ...    ${Prod 12}    ${Prod 13}    ${Prod 14}    ${Prod 15}    ${Prod 16}
+    #Click Special Offers Hero_CDGS
+    #run keyword and continue on failure    Verify URL Contain_Blank    ${Special Offers Hero}
+    Click Prod 1
+    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 1}
+    Click Prod 2
+    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 2}
+    Click Prod 3
+    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 3}
+    Click Prod 4
+    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 4}
+    Click Prod 5
+    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 5}
+    Click Prod 6
+    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 6}
+    Click Prod 7
+    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 7}
+    Click Prod 8
+    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 8}
+    Click Prod 9
+    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 9}
+    Click Prod 10
+    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 10}
+    Click Prod 11
+    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 11}
+    Click Prod 12
+    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 12}
+    Click Prod 13
+    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 13}
+    Click Prod 14
+    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 14}
+    Click Prod 15
+    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 15}
+    Click Prod 16
+    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 16}

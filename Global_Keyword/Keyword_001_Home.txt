@@ -83,3 +83,12 @@ Open Browser to Free Trial Page
     Wait Until Keyword Succeeds    2 min    1 sec    Go to    https://${env}.www.${microsite}.public.corel.net/${lan}/free-trials/?currency=${currency}
     Maximize Browser Window
     sleep    2
+
+Click Featured Prod 1_Corel_N
+    click element    //div[1][@class='col-sm-4 module-col']//h4
+
+Click Featured Prod 2_Corel_N
+    click element    //div[2][@class='col-sm-4 module-col']//h4
+
+Click Featured Prod 3_Corel_N
+    click element    //div[3][@class='col-sm-4 module-col']//h4

@@ -8,28 +8,28 @@ Resource          Keyword_001_Home.txt
 
 *** Keywords ***
 Check VA on PDF page
-    [Arguments]    ${env}    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
-    Open Browser to Product Page    ${env}    ${wWPO}    ${Lan}    ${currency}    ${PDF}
+    [Arguments]    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
+    Open Browser to Product Page    stg    ${wWPO}    ${Lan}    ${currency}    ${PDF}
     Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${PDF}    ${currency}    ${worth}
 
 Check VA on WPO HS page
-    [Arguments]    ${env}    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
-    Open Browser to Product Page    ${env}    ${wWPO}    ${Lan}    ${currency}    ${WPOHS}
+    [Arguments]    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
+    Open Browser to Product Page    stg    ${wWPO}    ${Lan}    ${currency}    ${WPOHS}
     Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${WPOHS}    ${currency}    ${worth}
 
 Check VA on WPO PRO page
-    [Arguments]    ${env}    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
-    Open Browser to Product Page    ${env}    ${wWPO}    ${Lan}    ${currency}    ${WPOPRO}
+    [Arguments]    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
+    Open Browser to Product Page    stg    ${wWPO}    ${Lan}    ${currency}    ${WPOPRO}
     Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${WPOPRO}    ${currency}    ${worth}
 
 Check VA on WPO std page
-    [Arguments]    ${env}    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
-    Open Browser to Product Page    ${env}    ${wWPO}    ${Lan}    ${currency}    ${WPOSTD}
+    [Arguments]    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
+    Open Browser to Product Page    stg    ${wWPO}    ${Lan}    ${currency}    ${WPOSTD}
     Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${WPOSTD}    ${currency}    ${worth}
 
 Check VA on CDTS page
-    [Arguments]    ${env}    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
-    Open Browser to Product Page    ${env}    ${wCDGS}    ${Lan}    ${currency}    ${CDTS}
+    [Arguments]    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
+    Open Browser to Product Page    stg    ${wCDGS}    ${Lan}    ${currency}    ${CDTS}
     Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${CDTS}    ${currency}    ${worth}
 
 Check VA on CDGS HS page
@@ -38,17 +38,17 @@ Check VA on CDGS HS page
     Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${CDHS}    ${currency}    ${worth}
 
 Check VA on CAD page
-    [Arguments]    ${env}    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
-    Open Browser to Product Page    ${env}    ${wCDGS}    ${Lan}    ${currency}    ${CAD}
+    [Arguments]    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
+    Open Browser to Product Page    stg    ${wCDGS}    ${Lan}    ${currency}    ${CAD}
     Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${CAD}    ${currency}    ${worth}
 
 Check VA on CDGS page
-    [Arguments]    ${env}    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
-    Open Browser to Product Page    ${env}    ${wCDGS}    ${Lan}    ${currency}    ${CDGS}
+    [Arguments]    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
+    Open Browser to Product Page    stg    ${wCDGS}    ${Lan}    ${currency}    ${CDGS}
     Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${CDGS}    ${currency}    ${worth}
 
 Check VA on PTR page
-    [Arguments]    ${env}    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
+    [Arguments]    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
     Open Browser to Product Page    ${env}    ${wPTR}    ${Lan}    ${currency}    ${PTR}
     Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${PTR}    ${currency}    ${worth}
 
@@ -93,26 +93,26 @@ Check VA on VSU page
     Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${VSU}    ${currency}    ${worth}
 
 Check VA on ASP page
-    [Arguments]    ${env}    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
-    Open Browser to Products Page    ${env}    ${wASP}    ${Lan}    ${currency}    ${ASP}
+    [Arguments]    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
+    Open Browser to Products Page    stg    ${wASP}    ${Lan}    ${currency}    ${ASP}
     Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${ASP}    ${currency}    ${worth}
 
 Check VA on WinDVD page
     [Arguments]    ${env}    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
-    Open Browser To Home Page    ${env}    ${WinDVD}    en    ${currency}
+    Open Browser To Home Page    stg    ${WinDVD}    en    ${currency}
     Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${WinDVD}    ${currency}    ${worth}
 
 LTO should contain
     [Arguments]    ${ValueAdd}    ${product}    ${currency}    ${worth}
-    #Run Keyword And Continue On Failure    element should contain    //p[@data-promo-text="promoMsgShort"]    ${ValueAdd}
-    Run Keyword And Continue On Failure    element should contain    //p[@data-promo-text="promoMsgShort"]    ${worth}
+    #Run Keyword And Continue On Failure    element should contain    //p[@data-promo-text="promoMsgLong"]    ${ValueAdd}
+    #Run Keyword And Continue On Failure    element should contain    //p[@data-promo-text="promoMsgShort"]    ${worth}
     Run Keyword And Continue On Failure    click element    //p[@data-promo-text="promoMsgDetail"]
     wait until element is visible    //div[@id="lto-details"]
     sleep    5
     Run Keyword And Continue On Failure    remove file    c:\\temp\\VA\\${ValueAdd}\\${product}_${currency}.png
     capture page screenshot    c:\\temp\\VA\\${ValueAdd}\\${product}_${currency}.png
-    #Run Keyword And Continue On Failure    element should contain    //h2[@data-promo-text="promoMsgShort"]    ${ValueAdd}
-    Run Keyword And Continue On Failure    element should contain    //h2[@data-promo-text="promoMsgShort"]    ${worth}
+    Run Keyword And Continue On Failure    element should contain    //div[@id="lto-details"]    ${ValueAdd}
+    # Keyword And Continue On Failure    element should contain    //h2[@data-promo-text="promoMsgShort"]    ${worth}
     close all browsers
 
 LTO should contain_VSP
@@ -223,3 +223,13 @@ Check VA on PVBU page
     [Arguments]    ${env}    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
     Open Browser to Products Page    ${env}    ${wPSP}    ${Lan}    ${currency}    ${PVBU}
     Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${PVBU}    ${currency}    ${worth}
+
+Check VA on CDE page
+    [Arguments]    ${env}    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
+    Open Browser to Product Page    stg    ${wCDGS}    ${Lan}    ${currency}    ${CDE}
+    Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${CDE}    ${currency}    ${worth}
+
+Check VA on CDS page
+    [Arguments]    ${env}    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
+    Open Browser to Product Page    stg    ${wCDGS}    ${Lan}    ${currency}    ${CDS}
+    Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${CDS}    ${currency}    ${worth}

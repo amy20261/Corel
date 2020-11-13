@@ -55,3 +55,7 @@ verify HSW
     Run Keyword And Continue On Failure    click element    //span[@class='hsw-btn']
     Run Keyword And Continue On Failure    Location Should Contain    special-offers
     close all browsers
+
+onetrust-group-btn
+    sleep    10
+    click button    //button[@id='onetrust-accept-btn-handler']

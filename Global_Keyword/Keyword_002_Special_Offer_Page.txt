@@ -38,3 +38,27 @@ Click Prod 7
 
 Click Prod 8
     run keyword and continue on failure    click element    //h4[@id='offers_product_name_8']
+
+Click Prod 9
+    run keyword and continue on failure    click element    //h4[@id='offers_product_name_10']
+
+Click Prod 10
+    run keyword and continue on failure    click element    //h4[@id='offers_product_name_11']
+
+Click Prod 11
+    run keyword and continue on failure    click element    //h4[@id='offers_product_name_12']
+
+Click Prod 12
+    run keyword and continue on failure    click element    //h4[@id='offers_product_name_13']
+
+Click Prod 13
+    run keyword and continue on failure    click element    //h4[@id='offers_product_name_14']
+
+Click Prod 14
+    run keyword and continue on failure    click element    //h4[@id='offers_product_name_15']
+
+Click Prod 15
+    run keyword and continue on failure    click element    //h4[@id='offers_product_name_16']
+
+Click Prod 16
+    run keyword and continue on failure    click element    //h4[@id='offers_product_name_17']
