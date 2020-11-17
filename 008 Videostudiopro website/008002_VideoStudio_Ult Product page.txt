@@ -120,3 +120,11 @@ Check price_VSU product page_50-30% OFF_STG
     \    @{var}=    split string    ${line}    ;
     \    run keyword and continue on failure    Check VSU product page    stg    @{var}[0]    @{var}[1]    @{var}[4]
     \    ...    @{var}[7]    @{var}[5]
+
+Check price_VSU product page
+    ${contents}=    Get File    ${VSU_T}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    run keyword and continue on failure    Check VSU product page    ${env}    @{var}[0]    @{var}[1]    @{var}[4]
+    \    ...    @{var}[7]    @{var}[5]

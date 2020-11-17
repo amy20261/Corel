@@ -220,16 +220,16 @@ verify link in special offer Page_ 2020
     Click Prod 9
     run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 9}
     Click Prod 10
-    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 10}
+    run keyword and continue on failure    Verify URL Contain    ${Prod 10}
     Click Prod 11
-    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 11}
+    run keyword and continue on failure    Verify URL Contain    ${Prod 11}
     Click Prod 12
-    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 12}
+    run keyword and continue on failure    Verify URL Contain    ${Prod 12}
     Click Prod 13
-    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 13}
+    run keyword and continue on failure    Verify URL Contain    ${Prod 13}
     Click Prod 14
-    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 14}
+    run keyword and continue on failure    Verify URL Contain    ${Prod 14}
     Click Prod 15
-    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 15}
+    run keyword and continue on failure    Verify URL Contain    ${Prod 15}
     Click Prod 16
-    run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 16}
+    run keyword and continue on failure    Verify URL Contain    ${Prod 16}

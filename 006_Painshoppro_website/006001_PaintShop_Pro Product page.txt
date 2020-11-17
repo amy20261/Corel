@@ -168,3 +168,11 @@ Check price_PSP product page_50%Off_STG
     \    @{var}=    split string    ${line}    ;
     \    run keyword and continue on failure    Check PSP product page    dev    @{var}[0]    @{var}[1]    @{var}[4]
     \    ...    @{var}[7]    @{var}[5]
+
+Check price_PSP product page
+    ${contents}=    Get File    ${PSP_T}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    run keyword and continue on failure    Check PSP product page    ${env}    @{var}[0]    @{var}[1]    @{var}[4]
+    \    ...    @{var}[7]    @{var}[5]

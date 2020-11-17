@@ -10,7 +10,7 @@ Variables         ../Global_Variable/eComm.py
 
 *** Test Cases ***
 Check price_WinDVD product page
-    ${contents}=    Get File    ${DVD_file}
+    ${contents}=    Get File    ${WinDVD_T}
     @{lines}=    Split to lines    ${contents}
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;

@@ -120,3 +120,11 @@ Check price_VSP product page_5030% Off_STG
     \    @{var}=    split string    ${line}    ;
     \    run keyword and continue on failure    Check VSP product page    stg    @{var}[0]    @{var}[1]    @{var}[4]
     \    ...    @{var}[7]    @{var}[5]
+
+Check price_VSP product page
+    ${contents}=    Get File    ${VSP_T}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    run keyword and continue on failure    Check VSP product page    ${env}    @{var}[0]    @{var}[1]    @{var}[4]
+    \    ...    @{var}[7]    @{var}[5]

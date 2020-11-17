@@ -120,3 +120,11 @@ Check price_PVB product page_20% off_stg
     \    @{var}=    split string    ${line}    ;
     \    run keyword and continue on failure    Check PSB product page    stg    @{var}[0]    @{var}[1]    @{var}[4]
     \    ...    @{var}[7]    @{var}[5]
+
+Check price_PVB product page
+    ${contents}=    Get File    ${PVB_T}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    run keyword and continue on failure    Check PSB product page    ${env}    @{var}[0]    @{var}[1]    @{var}[4]
+    \    ...    @{var}[7]    @{var}[5]

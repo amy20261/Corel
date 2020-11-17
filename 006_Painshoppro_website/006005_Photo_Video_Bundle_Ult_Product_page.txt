@@ -120,3 +120,11 @@ Check price_PVB Ult product page_SRP_STG
     \    @{var}=    split string    ${line}    ;
     \    run keyword and continue on failure    Check PVBU product page    STG    @{var}[0]    @{var}[1]    @{var}[4]
     \    ...    @{var}[7]    @{var}[5]
+
+Check price_PVB Ult product page
+    ${contents}=    Get File    ${PVB_UTL_T}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    run keyword and continue on failure    Check PVBU product page    ${env}    @{var}[0]    @{var}[1]    @{var}[4]
+    \    ...    @{var}[7]    @{var}[5]
