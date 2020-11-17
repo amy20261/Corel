@@ -216,3 +216,11 @@ Check price_WPO std product page_USCA_20% OFF_STG
     \    @{var}=    split string    ${line}    ;
     \    run keyword and continue on failure    Check WPO std product page    stg    @{var}[0]    @{var}[1]    @{var}[4]
     \    ...    @{var}[7]    @{var}[5]
+
+Check price_WPO std product page
+    ${contents}=    Get File    ${WPO_STD_T}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    run keyword and continue on failure    Check WPO std product page    ${env}    @{var}[0]    @{var}[1]    @{var}[4]
+    \    ...    @{var}[7]    @{var}[5]

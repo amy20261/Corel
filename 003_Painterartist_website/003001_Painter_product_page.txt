@@ -36,7 +36,7 @@ Check price_PTR product page_15% off_DEV
 Check price_PTR product page_20% off_DEV
     ${contents}=    Get File    C:\\Corel\\Global_Variable\\Data\\PTR_20.csv
     @{lines}=    Split to lines    ${contents}
-    :FOR    ${line}    IN    @{lines}
+    : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    run keyword and continue on failure    Check PTR product page    dev    @{var}[0]    @{var}[1]    @{var}[4]
     \    ...    @{var}[7]    @{var}[5]
@@ -55,4 +55,12 @@ Check price_PTR product page_20% off_STG
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    run keyword and continue on failure    Check PTR product page    stg    @{var}[0]    @{var}[1]    @{var}[4]
+    \    ...    @{var}[7]    @{var}[5]
+
+Check price_PTR product page
+    ${contents}=    Get File    ${PTR_T}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    run keyword and continue on failure    Check PTR product page    ${env}    @{var}[0]    @{var}[1]    @{var}[4]
     \    ...    @{var}[7]    @{var}[5]
