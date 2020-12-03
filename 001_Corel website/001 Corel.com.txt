@@ -221,15 +221,22 @@ verify link in special offer Page_ 2020
     run keyword and continue on failure    Verify URL Contain_Blank    ${Prod 9}
     Click Prod 10
     run keyword and continue on failure    Verify URL Contain    ${Prod 10}
+    onetrust-group-btn
     Click Prod 11
     run keyword and continue on failure    Verify URL Contain    ${Prod 11}
+    onetrust-group-btn
     Click Prod 12
     run keyword and continue on failure    Verify URL Contain    ${Prod 12}
+    onetrust-group-btn
     Click Prod 13
     run keyword and continue on failure    Verify URL Contain    ${Prod 13}
+    onetrust-group-btn
     Click Prod 14
     run keyword and continue on failure    Verify URL Contain    ${Prod 14}
+    onetrust-group-btn
     Click Prod 15
     run keyword and continue on failure    Verify URL Contain    ${Prod 15}
+    onetrust-group-btn
     Click Prod 16
     run keyword and continue on failure    Verify URL Contain    ${Prod 16}
+    onetrust-group-btn

@@ -295,8 +295,8 @@ verify link in special offer Page_ 2019
     run keyword and continue on failure    verify URL contain    ${Prod 1}
     Click Prod 2
     run keyword and continue on failure    verify URL contain    ${Prod 2}
-    Click Prod 3
-    run keyword and continue on failure    verify URL contain    ${Prod 3}
+    #Click Prod 3
+    # keyword and continue on failure    verify URL contain    ${Prod 3}
     Click Prod 4
     run keyword and continue on failure    verify URL contain    ${Prod 4}
     close all browsers

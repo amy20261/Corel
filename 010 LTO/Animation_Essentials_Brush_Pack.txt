@@ -14,7 +14,7 @@ Animation Essentials Brush Pack_PE_dev
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on PE page    dev    Animation Essentials    en    @{var}[1]    @{var}[2]
+    \    Check VA on PE page    dev    Animations Essentials    en    @{var}[1]    @{var}[2]
     \    close all browsers
 
 Animation Essentials Brush Pack_PE_stg
@@ -23,5 +23,5 @@ Animation Essentials Brush Pack_PE_stg
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on PE page    stg    Animation Essentials    en    @{var}[1]    @{var}[2]
+    \    Check VA on PE page    stg    Animations Essentials    en    @{var}[1]    @{var}[2]
     \    close all browsers

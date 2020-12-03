@@ -85,10 +85,10 @@ Open Browser to Free Trial Page
     sleep    2
 
 Click Featured Prod 1_Corel_N
-    click element    //div[1][@class='col-sm-4 module-col']//h4
+    click element    //div[1][@class='col-sm-4 module-col']//span[@class='link']
 
 Click Featured Prod 2_Corel_N
-    click element    //div[2][@class='col-sm-4 module-col']//h4
+    click element    //div[2][@class='col-sm-4 module-col']//span[@class='link']
 
 Click Featured Prod 3_Corel_N
-    click element    //div[3][@class='col-sm-4 module-col']//h4
+    click element    //div[3][@class='col-sm-4 module-col']//span[@class='link']

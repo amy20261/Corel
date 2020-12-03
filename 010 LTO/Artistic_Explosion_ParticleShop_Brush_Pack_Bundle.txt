@@ -14,7 +14,7 @@ Artistic Explosion ParticleShop Brush Pack Bundle_particleshop_dev
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on particleshop page    dev    Artistic Explosion ParticleShop    en    @{var}[1]    @{var}[2]
+    \    Check VA on particleshop page    dev    ParticleShop    en    @{var}[1]    @{var}[2]
     \    close all browsers
 
 Artistic Explosion ParticleShop Brush Pack Bundle_particleshop_stg
@@ -23,5 +23,5 @@ Artistic Explosion ParticleShop Brush Pack Bundle_particleshop_stg
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on particleshop page    stg    Artistic Explosion ParticleShop    en    @{var}[1]    @{var}[2]
+    \    Check VA on particleshop page    stg    ParticleShop    en    @{var}[1]    @{var}[2]
     \    close all browsers

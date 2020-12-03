@@ -1,0 +1,199 @@
+*** Settings ***
+Library           Selenium2Library
+Library           OperatingSystem
+Library           String
+Library           Screenshot    c:/temp
+Variables         ../Global_Variable/eComm.py
+Resource          ../Global_Keyword/Keyword_003_Product.txt
+Resource          ../Global_Keyword/Keyword_003010_LTO.txt
+Resource          ../Global_Keyword/Keyword_001_Home.txt
+
+*** Test Cases ***
+Link_particleshop
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on particleshop page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_PE
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on PE page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_PTR
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on PTR page    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_WPO STD
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on WPO STD page    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_WPO PRO
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on WPO PRO page    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_WPO HS
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on WPO HS page    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_PDF
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on PDF page    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_CDTS
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on CDTS page    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_CDGS HS
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on CDGS HS page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_CAD
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on CAD page    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_CDGS
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on CDGS page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_PSP
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on PSP page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_PSU
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on PSU page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_PVB
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on PVB page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_VSP
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on VSP page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_VSU
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on VSU page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_ASP
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on ASP page    stg    link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_WinDVD
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on WinDVD page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_CDE
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on CDE page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_CDS
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on CDs page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers
+
+Link_PVB_ULT
+    ${contents}=    Get File    ${VA_WINZIP}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Check VA on PVB ult page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    close all browsers

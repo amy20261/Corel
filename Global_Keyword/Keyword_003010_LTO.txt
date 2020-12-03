@@ -43,7 +43,7 @@ Check VA on CAD page
     Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${CAD}    ${currency}    ${worth}
 
 Check VA on CDGS page
-    [Arguments]    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
+    [Arguments]    ${env}    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
     Open Browser to Product Page    stg    ${wCDGS}    ${Lan}    ${currency}    ${CDGS}
     Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${CDGS}    ${currency}    ${worth}
 
@@ -93,7 +93,7 @@ Check VA on VSU page
     Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${VSU}    ${currency}    ${worth}
 
 Check VA on ASP page
-    [Arguments]    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
+    [Arguments]    ${env}    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
     Open Browser to Products Page    stg    ${wASP}    ${Lan}    ${currency}    ${ASP}
     Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${ASP}    ${currency}    ${worth}
 
@@ -111,7 +111,7 @@ LTO should contain
     sleep    5
     Run Keyword And Continue On Failure    remove file    c:\\temp\\VA\\${ValueAdd}\\${product}_${currency}.png
     capture page screenshot    c:\\temp\\VA\\${ValueAdd}\\${product}_${currency}.png
-    Run Keyword And Continue On Failure    element should contain    //div[@id="lto-details"]    ${ValueAdd}
+    #Run Keyword And Continue On Failure    element should contain    //div[@id="lto-details"]    ${ValueAdd}
     # Keyword And Continue On Failure    element should contain    //h2[@data-promo-text="promoMsgShort"]    ${worth}
     close all browsers
 
@@ -233,3 +233,8 @@ Check VA on CDS page
     [Arguments]    ${env}    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
     Open Browser to Product Page    stg    ${wCDGS}    ${Lan}    ${currency}    ${CDS}
     Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${CDS}    ${currency}    ${worth}
+
+Check VA on PVB ULT page
+    [Arguments]    ${env}    ${ValueAdd}    ${Lan}    ${currency}    ${worth}
+    Open Browser to Products Page    ${env}    ${wPSP}    ${Lan}    ${currency}    ${PVBU}
+    Run Keyword And Continue On Failure    LTO should contain    ${ValueAdd}    ${PVBU}    ${currency}    ${worth}

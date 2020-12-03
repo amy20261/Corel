@@ -23,7 +23,7 @@ ParticleShop_CDGS_stg
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on CDGS page    dev    particleshop    en    @{var}[1]    @{var}[2]
+    \    Check VA on CDGS page    stg    particleshop    en    @{var}[1]    @{var}[2]
     \    close all browsers
 
 ParticleShop_PSP_dev
