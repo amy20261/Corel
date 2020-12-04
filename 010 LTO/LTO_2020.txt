@@ -15,7 +15,7 @@ Link_particleshop
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on particleshop page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    Check VA on particleshop page    ${env}    Link    en    @{var}[1]    @{var}[2]
     \    close all browsers
 
 Link_PE
@@ -24,7 +24,7 @@ Link_PE
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on PE page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    Check VA on PE page    ${env}    Link    en    @{var}[1]    @{var}[2]
     \    close all browsers
 
 Link_PTR
@@ -33,7 +33,7 @@ Link_PTR
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on PTR page    Link    en    @{var}[1]    @{var}[2]
+    \    Check VA on PTR page    ${env}    Link    en    @{var}[1]    @{var}[2]
     \    close all browsers
 
 Link_WPO STD
@@ -42,7 +42,7 @@ Link_WPO STD
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on WPO STD page    Link    en    @{var}[1]    @{var}[2]
+    \    Check VA on WPO STD page    ${env}    en    @{var}[1]    @{var}[2]
     \    close all browsers
 
 Link_WPO PRO
@@ -87,7 +87,7 @@ Link_CDGS HS
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on CDGS HS page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    Check VA on CDGS HS page    ${env}    Link    en    @{var}[1]    @{var}[2]
     \    close all browsers
 
 Link_CAD
@@ -105,7 +105,7 @@ Link_CDGS
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on CDGS page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    Check VA on CDGS page    ${env}    Link    en    @{var}[1]    @{var}[2]
     \    close all browsers
 
 Link_PSP
@@ -114,7 +114,7 @@ Link_PSP
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on PSP page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    Check VA on PSP page    ${env}    Link    en    @{var}[1]    @{var}[2]
     \    close all browsers
 
 Link_PSU
@@ -123,7 +123,7 @@ Link_PSU
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on PSU page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    Check VA on PSU page    ${env}    Link    en    @{var}[1]    @{var}[2]
     \    close all browsers
 
 Link_PVB
@@ -132,7 +132,7 @@ Link_PVB
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on PVB page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    Check VA on PVB page    ${env}    Link    en    @{var}[1]    @{var}[2]
     \    close all browsers
 
 Link_VSP
@@ -141,7 +141,7 @@ Link_VSP
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on VSP page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    Check VA on VSP page    ${env}    Link    en    @{var}[1]    @{var}[2]
     \    close all browsers
 
 Link_VSU
@@ -150,7 +150,7 @@ Link_VSU
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on VSU page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    Check VA on VSU page    ${env}    Link    en    @{var}[1]    @{var}[2]
     \    close all browsers
 
 Link_ASP
@@ -159,7 +159,7 @@ Link_ASP
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on ASP page    stg    link    en    @{var}[1]    @{var}[2]
+    \    Check VA on ASP page    ${env}    link    en    @{var}[1]    @{var}[2]
     \    close all browsers
 
 Link_WinDVD
@@ -168,7 +168,7 @@ Link_WinDVD
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on WinDVD page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    Check VA on WinDVD page    ${env}    Link    en    @{var}[1]    @{var}[2]
     \    close all browsers
 
 Link_CDE
@@ -177,7 +177,7 @@ Link_CDE
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on CDE page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    Check VA on CDE page    ${env}    Link    en    @{var}[1]    @{var}[2]
     \    close all browsers
 
 Link_CDS
@@ -186,7 +186,7 @@ Link_CDS
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on CDs page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    Check VA on CDs page    ${env}    Link    en    @{var}[1]    @{var}[2]
     \    close all browsers
 
 Link_PVB_ULT
@@ -195,5 +195,5 @@ Link_PVB_ULT
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Check VA on PVB ult page    stg    Link    en    @{var}[1]    @{var}[2]
+    \    Check VA on PVB ult page    ${env}    Link    en    @{var}[1]    @{var}[2]
     \    close all browsers

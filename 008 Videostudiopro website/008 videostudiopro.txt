@@ -9,57 +9,35 @@ Resource          ../Global_Keyword/Keyword_060_videostudiopro.txt
 Variables         ../Global_Variable/eComm.py
 
 *** Test Cases ***
-Check Link_Home Page_DEV
+Check Link_Home Page
     ${contents}=    Get File    ${Corel_Home}
     @{lines}=    Split to lines    ${contents}
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Home Page    dev    ${wVSP}    @{var}[1]    @{var}[2]
-    \    run keyword if    '@{var}[1]' in 'en;de;fr;it;nl;tw;ru;jp'    verify link on home page_2019    videostudio/ultimate    videostudio/pro    videostudio/ultimate
+    \    Open Browser to Home Page    ${env}    ${wVSP}    @{var}[1]    @{var}[2]
+    \    run keyword if    '@{var}[1]' in 'en;de;fr;it;nl;jp;ru;tw'    verify link on home page_2019    videostudio/ultimate    videostudio/pro    videostudio/ultimate
     \    ...    photo-video-bundle    photomirage
     [Teardown]
 
-Chick Link_Special Offer Page_DEV
+Chick Link_Special Offer Page
     ${contents}=    Get File    ${Corel_Home}
     @{lines}=    Split to lines    ${contents}
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Special Offer Page    dev    ${wVSP}    @{var}[1]    @{var}[2]
+    \    Open Browser to Special Offer Page    ${env}    ${wVSP}    @{var}[1]    @{var}[2]
     \    run keyword if    '@{var}[1]' in 'en;de;fr;it;nl;jp'    run keyword and continue on failure    verify link in special offer page_2019    videostudio/ultimate    videostudio/pro
     \    ...    videostudio/ultimate    photo-video-bundle    windvdpro
     \    close all browsers
 
-Check Link_Home Page_STG
-    ${contents}=    Get File    ${Corel_Home}
-    @{lines}=    Split to lines    ${contents}
-    : FOR    ${line}    IN    @{lines}
-    \    @{var}=    split string    ${line}    ;
-    \    close all browsers
-    \    Open Browser to Home Page    stg    ${wVSP}    @{var}[1]    @{var}[2]
-    \    run keyword if    '@{var}[1]' in 'en;de;fr;it;nl;tw;ru;jp'    verify link on home page_2019    videostudio/ultimate    videostudio/pro    videostudio/ultimate
-    \    ...    photo-video-bundle    photomirage
-    [Teardown]
-
-Chick Link_Special Offer Page_STG
-    ${contents}=    Get File    ${Corel_Home}
-    @{lines}=    Split to lines    ${contents}
-    : FOR    ${line}    IN    @{lines}
-    \    @{var}=    split string    ${line}    ;
-    \    close all browsers
-    \    Open Browser to Special Offer Page    stg    ${wVSP}    @{var}[1]    @{var}[2]
-    \    run keyword if    '@{var}[1]' in 'en;de;fr;it;nl;jp'    run keyword and continue on failure    verify link in special offer page_2019    videostudio/ultimate    videostudio/pro
-    \    ...    videostudio/ultimate    photo-video-bundle    windvdpro
-    \    close all browsers
-
-Check tiral down_Home Page_DEV
+Check tiral down_Home Page
     ${contents}=    Get File    ${VSP_Home}
     @{lines}=    Split to lines    ${contents}
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Home Page    dev    ${wVSP}    @{var}[1]    @{var}[2]
+    \    Open Browser to Home Page    ${env}    ${wVSP}    @{var}[1]    @{var}[2]
     \    Run keyword if    '@{var}[1]' in 'en'    run keyword and continue on failure    verify trial download on home page    @{var}[3]    @{var}[4]
     \    ...    @{var}[5]    @{var}[6]
 
@@ -69,7 +47,7 @@ Check LTO_Home Page
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Home Page    dev    ${wVSP}    @{var}[1]    @{var}[2]
+    \    Open Browser to Home Page    ${env}    ${wVSP}    @{var}[1]    @{var}[2]
     \    run keyword and continue on failure    verify LTO on home page
     [Teardown]
 
@@ -79,7 +57,7 @@ Check SavingBadge_Home Page
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Home Page    dev    ${wVSP}    @{var}[1]    @{var}[2]
+    \    Open Browser to Home Page    ${env}    ${wVSP}    @{var}[1]    @{var}[2]
     \    run keyword and continue on failure    verify Saving badge on home page
     [Teardown]
 
@@ -89,7 +67,7 @@ Chick LTO_Special Offer Page
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Special Offer Page    dev    ${wVSP}    @{var}[1]    @{var}[2]
+    \    Open Browser to Special Offer Page    ${env}    ${wVSP}    @{var}[1]    @{var}[2]
     \    run keyword and continue on failure    verify LTO on special offer page
     \    close all browsers
 
@@ -99,55 +77,9 @@ Chick SavingBadge_Special Offer Page
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Special Offer Page    dev    ${wVSP}    @{var}[1]    @{var}[2]
+    \    Open Browser to Special Offer Page    ${env}    ${wVSP}    @{var}[1]    @{var}[2]
     \    run keyword and continue on failure    verify SavingBadge on special offer page
     \    close all browsers
-
-Check Hero _Home Page_BN1
-    ${contents}=    Get File    ${Main_message_LOC}
-    @{lines}=    Split to lines    ${contents}
-    : FOR    ${line}    IN    @{lines}
-    \    @{var}=    split string    ${line}    ;
-    \    close all browsers
-    \    Open Browser to Home Page    ${env}    ${wVSP}    @{var}[1]    @{var}[2]
-    \    run keyword and continue on failure    Run keyword if    '@{var}[1]' in 'en;de;fr;jp'    element should contain    //p[@data-promo-text='hpPromoMsgShort']/span[@class='title']    @{var}[3]
-    \    close all browsers
-    [Teardown]
-
-Check Hero_ speical Offer Page_BN1
-    ${contents}=    Get File    ${Main_message_LOC}
-    @{lines}=    Split to lines    ${contents}
-    : FOR    ${line}    IN    @{lines}
-    \    @{var}=    split string    ${line}    ;
-    \    close all browsers
-    \    Open Browser to Special Offer Page    ${env}    ${wVSP}    @{var}[1]    @{var}[2]
-    \    run keyword and continue on failure    Run keyword if    '@{var}[1]' in 'en;de;fr;jp'    element should contain    //p[@data-promo-text='hpPromoMsgShort']/span[@class='title']    @{var}[3]
-    \    close all browsers
-    [Teardown]
-
-Check HSW _Home Page_BN1
-    ${contents}=    Get File    ${HSW_BN1}
-    @{lines}=    Split to lines    ${contents}
-    : FOR    ${line}    IN    @{lines}
-    \    @{var}=    split string    ${line}    ;
-    \    close all browsers
-    \    Open Browser to Home Page    ${env}    ${wVSP}    @{var}[1]    @{var}[2]
-    \    run keyword and continue on failure    Run keyword if    '@{var}[1]' in 'en;de;fr;jp'    verify HSW    @{var}[3]    @{var}[5]
-    \    ...    @{var}[4]
-    \    close all browsers
-    [Teardown]
-
-Check HSW _Free Trial Page_BN1
-    ${contents}=    Get File    ${HSW_BN1}
-    @{lines}=    Split to lines    ${contents}
-    : FOR    ${line}    IN    @{lines}
-    \    @{var}=    split string    ${line}    ;
-    \    close all browsers
-    \    Open Browser to Free Trial Page    ${env}    ${wVSP}    @{var}[1]    @{var}[2]
-    \    run keyword and continue on failure    Run keyword if    '@{var}[1]' in 'en;de;fr;jp'    verify HSW    @{var}[3]    @{var}[5]
-    \    ...    @{var}[4]
-    \    close all browsers
-    [Teardown]
 
 *** Keywords ***
 verify link on home page_2019

@@ -9,46 +9,24 @@ Resource          ../Global_Keyword/Keyword_020_coreldraw.txt
 Variables         ../Global_Variable/eComm.py
 
 *** Test Cases ***
-Check Link_Home Page_DEV
+Check Link_Home Page
     ${contents}=    Get File    ${Corel_Home}
     @{lines}=    Split to lines    ${contents}
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Home Page    dev    ${wCDGS}    @{var}[1]    @{var}[2]
+    \    Open Browser to Home Page    ${env}    ${wCDGS}    @{var}[1]    @{var}[2]
     \    run keyword if    '@{var}[1]' in 'en;de;fr;it;nl;br;la;cz;pl;tw;cn;ru;jp'    verify link on home page_CDGS2019    coreldraw    essentials    coreldraw/standard
     \    ...    coreldraw
     [Teardown]
 
-Check Link_Special Offer Page_DEV
+Check Link_Special Offer Page
     ${contents}=    Get File    ${Corel_Home}
     @{lines}=    Split to lines    ${contents}
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Special Offer Page    dev    ${wCDGS}    @{var}[1]    @{var}[2]
-    \    Run keyword if    '@{var}[1]' in 'en;de;fr;br;la;jp'    run keyword and continue on failure    verify link in special offer page_2019    coreldraw    essentials
-    \    ...    standard    coreldraw    technical-suite
-    \    close all browsers
-
-Check Link_Home Page_STG
-    ${contents}=    Get File    ${Corel_Home}
-    @{lines}=    Split to lines    ${contents}
-    : FOR    ${line}    IN    @{lines}
-    \    @{var}=    split string    ${line}    ;
-    \    close all browsers
-    \    Open Browser to Home Page    STG    ${wCDGS}    @{var}[1]    @{var}[2]
-    \    run keyword if    '@{var}[1]' in 'en;de;fr;it;nl;br;la;cz;pl;tw;cn;ru;jp'    verify link on home page_CDGS2019    coreldraw    essentials    coreldraw/standard
-    \    ...    coreldraw
-    [Teardown]
-
-Check Link_Special Offer Page_STG
-    ${contents}=    Get File    ${Corel_Home}
-    @{lines}=    Split to lines    ${contents}
-    : FOR    ${line}    IN    @{lines}
-    \    @{var}=    split string    ${line}    ;
-    \    close all browsers
-    \    Open Browser to Special Offer Page    stg    ${wCDGS}    @{var}[1]    @{var}[2]
+    \    Open Browser to Special Offer Page    ${env}    ${wCDGS}    @{var}[1]    @{var}[2]
     \    Run keyword if    '@{var}[1]' in 'en;de;fr;br;la;jp'    run keyword and continue on failure    verify link in special offer page_2019    coreldraw    essentials
     \    ...    standard    coreldraw    technical-suite
     \    close all browsers
@@ -59,7 +37,7 @@ Check LTO _Home Page
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Home Page    dev    ${wCDGS}    @{var}[1]    @{var}[2]
+    \    Open Browser to Home Page    ${env}    ${wCDGS}    @{var}[1]    @{var}[2]
     \    Run keyword if    '@{var}[1]' in 'en;de;fr;it;nl;br;la;jp'    verify LTO on home page
     [Teardown]
 
@@ -69,7 +47,7 @@ Check SavingBadge_Home Page
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Home Page    dev    ${wCDGS}    @{var}[1]    @{var}[2]
+    \    Open Browser to Home Page    ${env}    ${wCDGS}    @{var}[1]    @{var}[2]
     \    Run keyword if    '@{var}[1]' in 'en;de;fr;it;nl;br;la;jp'    verify Savingbadge on home page
     [Teardown]
 
@@ -79,7 +57,7 @@ Check LTO_Special Offer Page
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Special Offer Page    dev    ${wCDGS}    @{var}[1]    @{var}[2]
+    \    Open Browser to Special Offer Page    ${env}    ${wCDGS}    @{var}[1]    @{var}[2]
     \    Run keyword if    '@{var}[1]' in 'en;de;fr;it;nl;br;la;jp'    run keyword and continue on failure    verify LTO on special offer page
     \    close all browsers
 
@@ -89,12 +67,12 @@ Check SavingBadge_Special Offer Page
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Special Offer Page    dev    ${wCDGS}    @{var}[1]    @{var}[2]
+    \    Open Browser to Special Offer Page    ${env}    ${wCDGS}    @{var}[1]    @{var}[2]
     \    Run keyword if    '@{var}[1]' in 'en;de;fr;it;nl;br;la'    run keyword and continue on failure    verify SavingBadge on special offer page
     \    Run keyword if    '@{var}[1]' in 'jp'    run keyword and continue on failure    verify SavingBadge on special offer page_JP
     \    close all browsers
 
-Check HSW _Home Page_BN1
+Check HSW _Home Page
     ${contents}=    Get File    ${HSW_BN1}
     @{lines}=    Split to lines    ${contents}
     : FOR    ${line}    IN    @{lines}
@@ -106,7 +84,7 @@ Check HSW _Home Page_BN1
     \    close all browsers
     [Teardown]
 
-Check HSW _Free Trial Page_BN1
+Check HSW _Free Trial Page
     ${contents}=    Get File    ${HSW_BN1}
     @{lines}=    Split to lines    ${contents}
     : FOR    ${line}    IN    @{lines}
@@ -124,7 +102,7 @@ Check Trial down_Home Page
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Home Page    dev    ${wCDGS}    @{var}[1]    @{var}[2]
+    \    Open Browser to Home Page    ${env}    ${wCDGS}    @{var}[1]    @{var}[2]
     \    run keyword and continue on failure    verify trial download CDGS    @{var}[3]    @{var}[4]    @{var}[5]    @{var}[6]
 
 Check Trial down_free-trials Page
@@ -133,7 +111,7 @@ Check Trial down_free-trials Page
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Free Trial Page    dev    ${wCDGS}    @{var}[1]    @{var}[2]
+    \    Open Browser to Free Trial Page    ${env}    ${wCDGS}    @{var}[1]    @{var}[2]
     \    run keyword and continue on failure    verify trial download CDGS    @{var}[3]    @{var}[4]    @{var}[5]    @{var}[6]
 
 Check Trial down_product Page
@@ -142,7 +120,7 @@ Check Trial down_product Page
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Product Page    dev    ${wCDGS}    @{var}[1]    @{var}[2]    ${CDGS}
+    \    Open Browser to Product Page    ${env}    ${wCDGS}    @{var}[1]    @{var}[2]    ${CDGS}
     \    run keyword and continue on failure    verify trial download CDGS    @{var}[3]    @{var}[4]    @{var}[5]    @{var}[6]
 
 Check Trial down_product/License Page
@@ -151,7 +129,7 @@ Check Trial down_product/License Page
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Product Page    dev    ${wCDGS}    @{var}[1]    @{var}[2]    license
+    \    Open Browser to Product Page    ${env}    ${wCDGS}    @{var}[1]    @{var}[2]    license
     \    Run keyword if    '@{var}[1]' in 'en;de;fr;it;nl;br;la'    run keyword and continue on failure    verify trial download CDGS    @{var}[3]    @{var}[4]
     \    ...    @{var}[5]    @{var}[6]
 
@@ -161,7 +139,7 @@ Check Trial down_product/education Page
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Product Page    dev    ${wCDGS}    @{var}[1]    @{var}[2]    education
+    \    Open Browser to Product Page    ${env}    ${wCDGS}    @{var}[1]    @{var}[2]    education
     \    Run keyword if    '@{var}[1]' in 'en'    run keyword and continue on failure    verify trial download CDGS    @{var}[3]    @{var}[4]
     \    ...    @{var}[5]    @{var}[6]
 
@@ -171,64 +149,7 @@ Check Trial down_product/education-edition Page
     : FOR    ${line}    IN    @{lines}
     \    @{var}=    split string    ${line}    ;
     \    close all browsers
-    \    Open Browser to Product Page    dev    ${wCDGS}    @{var}[1]    @{var}[2]    education-edition
-    \    Run keyword if    '@{var}[1]' in 'en'    run keyword and continue on failure    verify trial download CDGS    @{var}[3]    @{var}[4]
-    \    ...    @{var}[5]    @{var}[6]
-
-Check Trial down_Home Page_stg
-    ${contents}=    Get File    ${CDGS_Home}
-    @{lines}=    Split to lines    ${contents}
-    : FOR    ${line}    IN    @{lines}
-    \    @{var}=    split string    ${line}    ;
-    \    close all browsers
-    \    Open Browser to Home Page    stg    ${wCDGS}    @{var}[1]    @{var}[2]
-    \    run keyword and continue on failure    verify trial download CDGS    @{var}[3]    @{var}[4]    @{var}[5]    @{var}[6]
-
-Check Trial down_free-trials Page-stg
-    ${contents}=    Get File    ${CDGS_Home}
-    @{lines}=    Split to lines    ${contents}
-    : FOR    ${line}    IN    @{lines}
-    \    @{var}=    split string    ${line}    ;
-    \    close all browsers
-    \    Open Browser to Free Trial Page    stg    ${wCDGS}    @{var}[1]    @{var}[2]
-    \    run keyword and continue on failure    verify trial download CDGS    @{var}[3]    @{var}[4]    @{var}[5]    @{var}[6]
-
-Check Trial down_product Page-stg
-    ${contents}=    Get File    ${CDGS_Home}
-    @{lines}=    Split to lines    ${contents}
-    : FOR    ${line}    IN    @{lines}
-    \    @{var}=    split string    ${line}    ;
-    \    close all browsers
-    \    Open Browser to Product Page    stg    ${wCDGS}    @{var}[1]    @{var}[2]    ${CDGS}
-    \    run keyword and continue on failure    verify trial download CDGS    @{var}[3]    @{var}[4]    @{var}[5]    @{var}[6]
-
-Check Trial down_product/License Page-stg
-    ${contents}=    Get File    ${CDGS_Home}
-    @{lines}=    Split to lines    ${contents}
-    : FOR    ${line}    IN    @{lines}
-    \    @{var}=    split string    ${line}    ;
-    \    close all browsers
-    \    Open Browser to Product Page    stg    ${wCDGS}    @{var}[1]    @{var}[2]    license
-    \    Run keyword if    '@{var}[1]' in 'en;de;fr;it;nl;br;la'    run keyword and continue on failure    verify trial download CDGS    @{var}[3]    @{var}[4]
-    \    ...    @{var}[5]    @{var}[6]
-
-Check Trial down_product/education Page-stg
-    ${contents}=    Get File    ${CDGS_Home}
-    @{lines}=    Split to lines    ${contents}
-    : FOR    ${line}    IN    @{lines}
-    \    @{var}=    split string    ${line}    ;
-    \    close all browsers
-    \    Open Browser to Product Page    stg    ${wCDGS}    @{var}[1]    @{var}[2]    education
-    \    Run keyword if    '@{var}[1]' in 'en'    run keyword and continue on failure    verify trial download CDGS    @{var}[3]    @{var}[4]
-    \    ...    @{var}[5]    @{var}[6]
-
-Check Trial down_product/education-edition Page-stg
-    ${contents}=    Get File    ${CDGS_Home}
-    @{lines}=    Split to lines    ${contents}
-    : FOR    ${line}    IN    @{lines}
-    \    @{var}=    split string    ${line}    ;
-    \    close all browsers
-    \    Open Browser to Product Page    stg    ${wCDGS}    @{var}[1]    @{var}[2]    education-edition
+    \    Open Browser to Product Page    ${env}    ${wCDGS}    @{var}[1]    @{var}[2]    education-edition
     \    Run keyword if    '@{var}[1]' in 'en'    run keyword and continue on failure    verify trial download CDGS    @{var}[3]    @{var}[4]
     \    ...    @{var}[5]    @{var}[6]
 
