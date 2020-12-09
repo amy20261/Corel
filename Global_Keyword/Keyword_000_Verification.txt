@@ -59,3 +59,9 @@ verify HSW
 onetrust-group-btn
     sleep    10
     click button    //button[@id='onetrust-accept-btn-handler']
+
+verify HSW_MM
+    run keyword and continue on failure    element should be visible    //span[@class='hsw-btn']
+    Run Keyword And Continue On Failure    click element    //span[@class='hsw-btn']
+    Run Keyword And Continue On Failure    Location Should Contain    mm-eval
+    close all browsers

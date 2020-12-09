@@ -1,0 +1,66 @@
+*** Settings ***
+Library           Selenium2Library
+Library           OperatingSystem
+Library           String
+Resource          ../Global_Keyword/Keyword_000_Verification.txt
+Resource          ../Global_Keyword/Keyword_001_Home.txt
+Resource          ../Global_Keyword/Keyword_002_Special_Offer_Page.txt
+Resource          ../Global_Keyword/Keyword_020_coreldraw.txt
+Variables         ../Global_Variable/eComm.py
+
+*** Test Cases ***
+Check HSW _Home Page
+    ${contents}=    Get File    ${MM_HSW}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Open Browser to Home Page    dev    ${wMM}    @{var}[1]    @{var}[2]
+    \    Maximize Browser Window
+    \    Selenium2Library.set screenshot directory    c:/temp/dev/${wMM}/
+    \    capture page screenshot    Home_@{var}[2]\.png
+    \    run keyword and continue on failure    verify HSW_MM
+    \    close all browsers
+    [Teardown]
+
+Check HSW _product/manager Page
+    ${contents}=    Get File    ${MM_HSW}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Open Browser to Page    dev    ${wMM}    @{var}[1]    @{var}[2]    product/mindmanager
+    \    Maximize Browser Window
+    \    Selenium2Library.set screenshot directory    c:/temp/dev/${wMM}/
+    \    capture page screenshot    product/mindmanger_@{var}[2]\.png
+    \    run keyword and continue on failure    verify HSW_MM
+    \    close all browsers
+    [Teardown]
+
+Check HSW _product/manager/windows Page
+    ${contents}=    Get File    ${MM_HSW}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Open Browser to Page    dev    ${wMM}    @{var}[1]    @{var}[2]    product/manager/windows
+    \    Maximize Browser Window
+    \    Selenium2Library.set screenshot directory    c:/temp/dev/${wMM}/
+    \    capture page screenshot    product/manager/windows_@{var}[2].png
+    \    run keyword and continue on failure    verify HSW_MM
+    \    close all browsers
+    [Teardown]
+
+Check no HSW _product/mindmanager/enterprise Page
+    ${contents}=    Get File    ${MM_HSW}
+    @{lines}=    Split to lines    ${contents}
+    : FOR    ${line}    IN    @{lines}
+    \    @{var}=    split string    ${line}    ;
+    \    close all browsers
+    \    Open Browser to Page    dev    ${wMM}    @{var}[1]    @{var}[2]    support/enterprise-download
+    \    Maximize Browser Window
+    \    Selenium2Library.set screenshot directory    c:/temp/dev/${wMM}/
+    \    capture page screenshot    product/mindmanager/enterprise_@{var}[2].png
+    \    run keyword and continue on failure    element should not be visible    //span[@class='hsw-btn']
+    \    close all browsers
+    [Teardown]

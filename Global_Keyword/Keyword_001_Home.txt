@@ -4,6 +4,7 @@ Library           Selenium2Library
 *** Keywords ***
 Open Browser to Home Page
     [Arguments]    ${env}=dev    ${microsite}=Painshoppro    ${lan}=en    ${currency}=en-US
+    log    https://${env}.www.${microsite}.public.corel.net/${lan}/?currency=${currency}
     Wait Until Keyword Succeeds    2 min    1 sec    open browser    https://${env}.www.${microsite}.public.corel.net/${lan}/?currency=${currency}
     Wait Until Keyword Succeeds    2 min    1 sec    Go to    https://${env}.www.${microsite}.public.corel.net/${lan}/?currency=${currency}
     Maximize Browser Window
@@ -92,3 +93,11 @@ Click Featured Prod 2_Corel_N
 
 Click Featured Prod 3_Corel_N
     click element    //div[3][@class='col-sm-4 module-col']//span[@class='link']
+
+Open Browser to Page
+    [Arguments]    ${env}    ${microsite}    ${lan}    ${currency}    ${page}
+    log    https://${env}.www.${microsite}.public.corel.net/${lan}/${page}/?currency=${currency}
+    Wait Until Keyword Succeeds    2 min    1 sec    open browser    https://${env}.www.${microsite}.public.corel.net/${lan}/${page}/?currency=${currency}
+    Wait Until Keyword Succeeds    2 min    1 sec    Go to    https://${env}.www.${microsite}.public.corel.net/${lan}/${page}/?currency=${currency}
+    Maximize Browser Window
+    sleep    4

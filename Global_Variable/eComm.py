@@ -22,6 +22,7 @@ wPSP='paintshoppro'
 wVSP='videostudiopro'
 wASP='aftershotpro'
 wPHOTOMIRAGE='Photomirage'
+wMM='Mindmanager'
 
 #product
 CDGS='coreldraw'
@@ -118,6 +119,9 @@ UPI='PI_13UGESD'
 OPI='PI2019EFMBAM'
 XPI='PI2019EFMBUGAM'
 
+#HSW
+MM_HSW='C:\\Corel\\Global_Variable\\Link\\en_LAN.csv'
+
 #link on Home page
 Corel_Home='C:\\Corel\\Global_Variable\\Link\\Checklink_Home_COREL.csv'
 CDGS_Home='C:\\Corel\\Global_Variable\\Link\\Checklink_Home_CDGS.csv'
@@ -200,3 +204,5 @@ HTTPS_COREL='C:\\Corel\\Global_Variable\\HTTPS\\HTTPS_COREL.csv'
 #Cart
 cart_C='C:\\Corel\\Global_Variable\\Cart\\Condensed.csv'
 cart_L='C:\\Corel\\Global_Variable\\Cart\\longform.csv'
+
+
