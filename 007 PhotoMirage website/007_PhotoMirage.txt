@@ -69,14 +69,6 @@ Screenshot_PhotoMirage_all Lan_PRO
     screenshot_PhotoMirage_pro    en    es-MX
     screenshot_PhotoMirage_pro    en    es-ES
 
-Check price_photomirage page
-    ${contents}=    Get File    ${PhotoMirage_file}
-    @{lines}=    Split to lines    ${contents}
-    : FOR    ${line}    IN    @{lines}
-    \    @{var}=    split string    ${line}    ;
-    \    run keyword and continue on failure    Check Photomirage page    ${env}    @{var}[0]    @{var}[1]    @{var}[4]
-    \    ...    @{var}[7]    @{var}[5]
-
 *** Keywords ***
 Open browser to home
     [Arguments]    ${microsite}=stg.www.roxio.public.corel.net    ${lan}=en    ${currency}=en-US

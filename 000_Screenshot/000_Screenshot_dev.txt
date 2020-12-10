@@ -288,11 +288,6 @@ screenshot_coreldraw
     Open browser to page    dev.www.coreldraw.public.corel.net    ${lan}    ${currency}    free-trials
     Open browser to page    dev.www.coreldraw.public.corel.net    ${lan}    ${currency}    all-products
     Open browser to page    dev.www.coreldraw.public.corel.net    ${lan}    ${currency}    product/coreldraw
-    Open browser to page    dev.www.coreldraw.public.corel.net    ${lan}    ${currency}    product/coreldraw
-    Open browser to page    dev.www.coreldraw.public.corel.net    ${lan}    ${currency}    product/coreldraw/mac
-    Open browser to page    dev.www.coreldraw.public.corel.net    ${lan}    ${currency}    product/license
-    Open browser to page    dev.www.coreldraw.public.corel.net    ${lan}    ${currency}    product/education
-    Open browser to page    dev.www.coreldraw.public.corel.net    ${lan}    ${currency}    product/education-edition
     Open browser to page    dev.www.coreldraw.public.corel.net    ${lan}    ${currency}    product/corel-cad
     Open browser to page    dev.www.coreldraw.public.corel.net    ${lan}    ${currency}    product/technical-suite
     Open browser to page    dev.www.coreldraw.public.corel.net    ${lan}    ${currency}    product/home-student
