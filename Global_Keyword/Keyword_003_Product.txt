@@ -83,8 +83,8 @@ Verify Upgrade_Sale price
 Check promo price on product_CDGS_one time purchase
     [Arguments]    ${SKU}    ${Full_Reg}    ${SavingBadge}    ${Full_promo}
     Run keyword if    '${SavingBadge}'!=""    run keywords    Verify SavingsBadge_2019    ${SavingBadge}
-    ...    AND    Verify Full_Reg price    ${Full_Reg}
-    ...    AND    Verify Full_Promo Price    ${Full_promo}
+    ...    AND    Verify Full_Promo Price-one time purchase    ${Full_Reg}
+    ...    AND    Verify Full_Promo Price_CDGS    ${Full_promo}
     ...    ELSE    Verify Full_Promo Price-one time purchase    ${Full_Reg}
 
 Check promo price on product_radio_CDHS
@@ -263,7 +263,7 @@ Click one time purchase
 
 Verify Full_Promo Price-one time purchase
     [Arguments]    ${FULL_Promo}
-    Run Keyword And Continue On Failure    Element should contain    //div[@class='tab-pane active']//div[@style='display: inline;']//span[@class='priceDisplayNormal']    ${FULL_Promo}
+    Run Keyword And Continue On Failure    Element should be visible    //span[@class='priceDisplayStrikethrough']
 
 Check promo price on product_CDGS_annual subscription
     [Arguments]    ${SKU}    ${Full_Reg}    ${SavingBadge}    ${Full_promo}
@@ -315,3 +315,7 @@ Verify SavingsBadge_VSU
     [Arguments]    ${SavingBadge}
     sleep    3
     Run Keyword And Continue On Failure    Element should contain    //span[@style='display: inline-block;']/span[@data-promo-text='savingsBadge']    ${SavingBadge}
+
+Verify Full_Promo Price_CDGS
+    [Arguments]    ${FULL_Promo}
+    Run Keyword And Continue On Failure    Element should be visible    //div[@style='display: inline;']//span[@class='priceDisplayNormal']
