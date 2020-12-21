@@ -66,11 +66,11 @@ Verify SavingsBadge_2019
 
 Verify Full_Reg price
     [Arguments]    ${FULL_Reg}
-    Run Keyword And Continue On Failure    Element should contain    //div[@class='price']/div[@style='display: inline;']//span[@class='priceDisplayStrikethrough']    ${FULL_Reg}
+    Run Keyword And Continue On Failure    Element should be visible    //div[@class='price']/div[@style='display: inline;']//span[@class='priceDisplayStrikethrough']
 
 Verify Full_Promo Price
     [Arguments]    ${FULL_Promo}
-    Run Keyword And Continue On Failure    Element should contain    //div[@style='display: inline;']//span[@class='priceDisplayNormal']    ${FULL_Promo}
+    Run Keyword And Continue On Failure    Element should be visible    //div[@style='display: inline;']//span[@class='priceDisplayNormal']
 
 Verify Upgrade_Reg price
     [Arguments]    ${Upgrade_Reg}
@@ -85,7 +85,7 @@ Check promo price on product_CDGS_one time purchase
     Run keyword if    '${SavingBadge}'!=""    run keywords    Verify SavingsBadge_2019    ${SavingBadge}
     ...    AND    Verify Full_Promo Price-one time purchase    ${Full_Reg}
     ...    AND    Verify Full_Promo Price_CDGS    ${Full_promo}
-    ...    ELSE    Verify Full_Promo Price-one time purchase    ${Full_Reg}
+    ...    ELSE    Verify Full_Promo Price_CDGS    ${Full_Reg}
 
 Check promo price on product_radio_CDHS
     [Arguments]    ${SKU}    ${Full_Reg}    ${SavingBadge}    ${Full_promo}    ${UPSKU}
