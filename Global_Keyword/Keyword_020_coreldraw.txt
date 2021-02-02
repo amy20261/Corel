@@ -22,8 +22,8 @@ Check CAD product page
     [Arguments]    ${env}    ${currency}    ${SKU}    ${Full_Reg}    ${SavingBadge}=${null}    ${Full_promo}=${null}
     close all browsers
     Open Browser to Product Page    ${env}    ${wCDGS}    en    ${currency}    ${CAD}
-    runkeyword if    '${SKU}'=="ESDCCAD2020ML"    run keyword and continue on failure    Check promo price on product_dropdown list_CAD    ${SKU}    ${Full_Reg}    ${SavingBadge}
-    ...    ${Full_promo}    ${UCAD}    ${OCAD}    ${XCAD}
+    run keyword and continue on failure    Check promo price on product_dropdown list_CAD    ${SKU}    ${Full_Reg}    ${SavingBadge}    ${Full_promo}    ${UCAD}
+    ...    ${OCAD}    ${XCAD}
     close all browsers
 
 Check CDTS product page

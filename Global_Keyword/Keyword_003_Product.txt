@@ -52,33 +52,72 @@ select BOX_dropdown list_PDF
 Verify SavingsBadge
     [Arguments]    ${SavingBadge}
     sleep    1
-    Run Keyword And Continue On Failure    Element should contain    //p[@data-promo-text='savingsBadge' and @style='display: inline-block;']    ${SavingBadge}
+    Run Keyword And Continue On Failure    element should contain    //p[@data-promo-text='savingsBadge' and @style='display: inline-block;']    ${savingBadge}
 
 Verify SavingsBadge_OLD
     [Arguments]    ${SavingBadge}
     sleep    1
-    Run Keyword And Continue On Failure    Element should contain    //div[@style='display: inline-block;']/p[@data-promo-text='savingsBadge']    ${SavingBadge}
+    Run Keyword And Continue On Failure    element should contain    //div[@style='display: inline-block;']/p[@data-promo-text='savingsBadge']    ${savingBadge}
 
 Verify SavingsBadge_2019
     [Arguments]    ${SavingBadge}
     sleep    3
-    Run Keyword And Continue On Failure    Element should contain    //div[@style='display: inline-block;']//p[@data-promo-text='savingsBadge']    ${SavingBadge}
+    Run Keyword And Continue On Failure    element should contain    //div[@style='display: inline-block;']//p[@data-promo-text='savingsBadge']    ${savingBadge}
+
+Verify SavingsBadge_VSU
+    [Arguments]    ${SavingBadge}
+    sleep    3
+    Run Keyword And Continue On Failure    element should contain    //span[@style='display: inline-block;']/span[@data-promo-text='savingsBadge']    ${savingBadge}
+
+Verify SavingsBadge_PSP
+    [Arguments]    ${SavingBadge}
+    sleep    1
+    Run Keyword And Continue On Failure    element should contain    //div[@style='display: inline;']//span[@data-promo-text='savingsBadge']    ${savingBadge}
+
+Verify SavingsBadge_PSU
+    [Arguments]    ${SavingBadge}
+    sleep    3
+    Run Keyword And Continue On Failure    element should contain    //div[@style='display: inline;']//span[@data-promo-text='savingsBadge']    ${savingBadge}
 
 Verify Full_Reg price
     [Arguments]    ${FULL_Reg}
     Run Keyword And Continue On Failure    Element should be visible    //div[@class='price']/div[@style='display: inline;']//span[@class='priceDisplayStrikethrough']
 
+Verify Full_Reg price_PM
+    [Arguments]    ${FULL_Reg}
+    Run Keyword And Continue On Failure    Element should be visible    //div[@style='display: inline;']//span[@class='priceDisplayStrikethrough']
+
 Verify Full_Promo Price
     [Arguments]    ${FULL_Promo}
     Run Keyword And Continue On Failure    Element should be visible    //div[@style='display: inline;']//span[@class='priceDisplayNormal']
 
+Verify Full_Promo Price-upgrade
+    [Arguments]    ${FULL_Promo}
+    Run Keyword And Continue On Failure    Element should be visible    //div[@style='display: inline;']//span[@class='priceDisplayNormal']
+
+Verify Full_Promo Price_CDGS
+    [Arguments]    ${FULL_Promo}
+    Run Keyword And Continue On Failure    Element should be visible    //div[@style='display: inline;']//span[@class='priceDisplayNormal']
+
+Verify Full_promo Price_PM
+    [Arguments]    ${FULL_reg}
+    Run Keyword And Continue On Failure    Element should be visible    //div[@style='display: inline;']//span[@class='priceDisplayNormal']
+
 Verify Upgrade_Reg price
     [Arguments]    ${Upgrade_Reg}
-    Run Keyword And Continue On Failure    Element should contain    //div[@class='price']/div[@style='display: inline;']//span[@class='priceDisplayStrikethrough']    ${Upgrade_Reg}
+    Run Keyword And Continue On Failure    Element should be visible    //div[@class='price']/div[@style='display: inline;']//span[@class='priceDisplayStrikethrough']
 
 Verify Upgrade_Sale price
     [Arguments]    ${Upgrade_Promo}
-    Run Keyword And Continue On Failure    Element should contain    //div[@class='price']/div[@style='display: inline;']//span[@class='priceDisplayNormal']    ${Upgrade_Promo}
+    Run Keyword And Continue On Failure    Element should be visible    //div[@class='price']/div[@style='display: inline;']//span[@class='priceDisplayNormal']
+
+Verify Full_Promo Price-one time purchase
+    [Arguments]    ${FULL_Promo}
+    Run Keyword And Continue On Failure    Element should be visible    //span[@class='priceDisplayStrikethrough']
+
+Verify Full_Promo Price-annual subscription
+    [Arguments]    ${FULL_Promo}
+    Run Keyword And Continue On Failure    Element should contain    //div[@class='tab-pane active']//div[@style='display: inline;']//span[@class='priceDisplayNormal']    ${FULL_Promo}
 
 Check promo price on product_CDGS_one time purchase
     [Arguments]    ${SKU}    ${Full_Reg}    ${SavingBadge}    ${Full_promo}
@@ -189,14 +228,6 @@ Check promo price on product_photomirage
     ...    AND    Verify Full_Promo Price_PM    ${Full_promo}
     ...    ELSE    Verify Full_Promo Price_PM    ${Full_Reg}
 
-Verify Full_promo Price_PM
-    [Arguments]    ${FULL_reg}
-    Run Keyword And Continue On Failure    Element should contain    //div[@style='display: inline;']//span[@class='priceDisplayNormal']    ${FULL_reg}
-
-Verify Full_Reg price_PM
-    [Arguments]    ${FULL_Reg}
-    Run Keyword And Continue On Failure    Element should contain    //div[@style='display: inline;']//span[@class='priceDisplayStrikethrough']    ${FULL_Reg}
-
 Check SKU array
     Run Keyword And Continue On Failure    Page should contain    var skuArray    loglevel=NONE
 
@@ -224,11 +255,6 @@ Check SUB2 SKU
     [Arguments]    ${SUB2SKU}
     Run Keyword And Continue On Failure    Page should contain    ${SUB2SKU}    loglevel=NONE
 
-Verify SavingsBadge_PSP
-    [Arguments]    ${SavingBadge}
-    sleep    1
-    Run Keyword And Continue On Failure    Element should contain    //div[@style='display: inline;']//span[@data-promo-text='savingsBadge']    ${SavingBadge}
-
 Check promo price on product_dropdown list_PSP
     [Arguments]    ${SKU}    ${Full_Reg}    ${SavingBadge}    ${Full_promo}    ${UPSKU}    ${BOXSKU}
     ...    ${UPBOXSKU}
@@ -240,11 +266,6 @@ Check promo price on product_dropdown list_PSP
     ...    AND    Verify Full_Reg price    ${Full_Reg}
     ...    AND    Verify Full_Promo Price    ${Full_promo}
     ...    ELSE    Verify Full_Promo Price    ${Full_Reg}
-
-Verify SavingsBadge_PSU
-    [Arguments]    ${SavingBadge}
-    sleep    3
-    Run Keyword And Continue On Failure    Element should contain    //div[@style='display: inline;']//span[@data-promo-text='savingsBadge']    ${SavingBadge}
 
 Check promo price on product_dropdown list_PSU
     [Arguments]    ${SKU}    ${Full_Reg}    ${SavingBadge}    ${Full_promo}    ${UPSKU}    ${BOXSKU}
@@ -261,20 +282,12 @@ Check promo price on product_dropdown list_PSU
 Click one time purchase
     click element    //a[@aria-controls='lifetime']
 
-Verify Full_Promo Price-one time purchase
-    [Arguments]    ${FULL_Promo}
-    Run Keyword And Continue On Failure    Element should be visible    //span[@class='priceDisplayStrikethrough']
-
 Check promo price on product_CDGS_annual subscription
     [Arguments]    ${SKU}    ${Full_Reg}    ${SavingBadge}    ${Full_promo}
     Run keyword if    '${SavingBadge}'!=""    run keywords    Verify SavingsBadge_2019    ${SavingBadge}
     ...    AND    Verify Full_Reg price    ${Full_Reg}
     ...    AND    Verify Full_Promo Price    ${Full_promo}
     ...    ELSE    Verify Full_Promo Price-annual subscription    ${Full_Reg}
-
-Verify Full_Promo Price-annual subscription
-    [Arguments]    ${FULL_Promo}
-    Run Keyword And Continue On Failure    Element should contain    //div[@class='tab-pane active']//div[@style='display: inline;']//span[@class='priceDisplayNormal']    ${FULL_Promo}
 
 Open Browser to pages
     [Arguments]    ${env}=dev    ${microsite}=corel    ${lan}=en    ${currency}=en-US    ${page}=painter
@@ -290,15 +303,6 @@ Check promo price on product_CDGS_upgrade
     ...    AND    Verify Full_Promo Price    ${Full_promo}
     ...    ELSE    Verify Full_Promo Price-upgrade    ${Full_Reg}
 
-Verify Full_Promo Price-upgrade
-    [Arguments]    ${FULL_Promo}
-    Run Keyword And Continue On Failure    Element should contain    //div[@style='display: inline;']//span[@class='priceDisplayNormal']    ${FULL_Promo}
-
-Verify SavingsBadge_2020
-    [Arguments]    ${SavingBadge}
-    sleep    3
-    Run Keyword And Continue On Failure    Element should contain    //div[@style='display: inline;']//span[@data-promo-text='savingsBadge']    ${SavingBadge}
-
 Check promo price on product_dropdown list_VSP
     [Arguments]    ${SKU}    ${Full_Reg}    ${SavingBadge}    ${Full_promo}    ${UPSKU}    ${BOXSKU}
     ...    ${UPBOXSKU}
@@ -310,12 +314,3 @@ Check promo price on product_dropdown list_VSP
     ...    AND    Verify Full_Reg price    ${Full_Reg}
     ...    AND    Verify Full_Promo Price    ${Full_promo}
     ...    ELSE    Verify Full_Promo Price    ${Full_Reg}
-
-Verify SavingsBadge_VSU
-    [Arguments]    ${SavingBadge}
-    sleep    3
-    Run Keyword And Continue On Failure    Element should contain    //span[@style='display: inline-block;']/span[@data-promo-text='savingsBadge']    ${SavingBadge}
-
-Verify Full_Promo Price_CDGS
-    [Arguments]    ${FULL_Promo}
-    Run Keyword And Continue On Failure    Element should be visible    //div[@style='display: inline;']//span[@class='priceDisplayNormal']
