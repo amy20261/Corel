@@ -67,7 +67,7 @@ Verify SavingsBadge_2019
 Verify SavingsBadge_2020
     [Arguments]    ${SavingBadge}
     sleep    3
-    Run Keyword And Continue On Failure    element should contain    //div[@style='display: inline;']//sapn[@data-promo-text='savingsBadge']    ${savingBadge}
+    Run Keyword And Continue On Failure    element should contain    //div[@style='display: inline;']//span[@data-promo-text='savingsBadge']    ${savingBadge}
 
 Verify SavingsBadge_VSU
     [Arguments]    ${SavingBadge}
